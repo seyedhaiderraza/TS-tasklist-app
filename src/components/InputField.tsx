@@ -14,6 +14,7 @@ const InputField: React.FC<Props> = ({ task, handleAddTask }) => {
     handleAddTask(inputRef.current?.value || '');
     if (inputRef.current) {
       inputRef.current.value = '';
+      inputRef.current.blur()//shift acive focus away
     }
   };
 

@@ -1,41 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
-.App{
-  
+.App {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
-.heading{
+
+.heading {
   font-family: 'Neucha';
   font-size: 3rem;
   color: white;
 }
-.task__list{
+.task__list {
   display: flex;
-  background-color:  #d1d1ff;
-  justify-content: flex-start;
-  align-items: flex-start;
+  background-color: #d1d1ff;
+  justify-content: space-between;
+  align-items: center;
   width: 50%;
-  border: 0.5px  solid;
+  border: 0.5px solid;
   text-align: left;
   margin-left: -15%;
-  
+  margin-bottom: 10px;
+  padding: 10px;
+  position: relative; /* Add position relative to the task__list */
 }
-.task__list__id{
+
+.task__list__id {
+  font-size: 20px;
   padding: 0 5%;
 }
-.task__list__taskinfo{}
-.task__list__isDone{padding-left: 80%;
+
+.task__list__content {
+  display: flex;
+  flex-grow: 1; /* Allow content to grow and fill the remaining space */
+}
+.task__list__taskinfo {
+  font-size: 20px;
+  overflow-wrap: break-word;
+  flex-grow: 1;
 }
 
+.task__list__isDone {
+  padding-left: 80%;
+}
 
-@media(max-width: 800px){
-  .heading{
+@media (max-width: 800px) {
+  .heading {
     margin: 3rem 0rem;
   }
-  
-.task__list__isDone{padding-left: 60%;
+
+  .task__list__isDone {
+    padding-left: 60%;
+  }
 }
+/**/without 
+.icons { 
+  position: absolute; /* Position the icons absolutely */
+  right: 10px; /* Adjust the right value as needed */
+}
+
+.icons > * {
+  padding: 5px 10px; /* Adjust padding for spacing between icons */
+}
+
+.icons > * > * {
+  width: 30px;
+  height: 30px;
 }
