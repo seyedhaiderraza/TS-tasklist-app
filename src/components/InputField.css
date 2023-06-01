@@ -1,0 +1,35 @@
+.todo__input{
+width: 70%;
+}
+.input__box{
+height: 3rem;
+width: 80%;
+display: inline;
+border-radius: 50px;
+font-size: 2rem;
+z-index: 1;
+padding-left: 5rem
+}
+.input__box:focus{
+    outline:none;
+}
+.submit__button{
+    border-radius: 3rem;
+    color: white;
+    background-color: #9c9cd7;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    text-shadow: 0 0 black;
+    font-size: medium;
+    font-weight: 700;
+    box-shadow:1px 0px 31px -1px rgba(0,0,0,1);
+    z-index: 11;
+    cursor: pointer;
+}
+
+@media(max-width: 800px){
+    .input__box{
+        width: 60%;
+    }
+}
