@@ -12,9 +12,30 @@
   font-size: 3rem;
   color: white;
 }
+.task__list{
+  display: flex;
+  background-color:  #d1d1ff;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+  border: 0.5px  solid;
+  text-align: left;
+  margin-left: -15%;
+  
+}
+.task__list__id{
+  padding: 0 5%;
+}
+.task__list__taskinfo{}
+.task__list__isDone{padding-left: 80%;
+}
+
 
 @media(max-width: 800px){
   .heading{
     margin: 3rem 0rem;
   }
+  
+.task__list__isDone{padding-left: 60%;
+}
 }
