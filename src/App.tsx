@@ -37,7 +37,13 @@ const App: React.FC = () => {
               <div className="task__list__content">
                 <p className="task__list__taskinfo">{task.task}</p>
                 <div className="icons">
-                  <span className="icons__delete">
+                  <span className="icons__delete" onClick={()=>{
+                      setTaskList((prev)=>{
+                        let newList = prev.filter(item=>item.id!==task.id)
+                        return [...newList]
+                      })
+                  }
+                }>
                     <AiFillDelete />
                   </span>
                   <span className="icons__edit">

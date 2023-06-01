@@ -27,7 +27,9 @@ padding-left: 5rem
     z-index: 11;
     cursor: pointer;
 }
-
+.submit__button:active{
+    background-color: #c8c8ec;
+}
 @media(max-width: 800px){
     .input__box{
         width: 60%;

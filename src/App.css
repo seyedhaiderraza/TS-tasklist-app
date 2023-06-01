@@ -25,7 +25,6 @@
   padding: 10px;
   position: relative; /* Add position relative to the task__list */
 }
-
 .task__list__id {
   font-size: 20px;
   padding: 0 5%;
@@ -54,14 +53,16 @@
     padding-left: 60%;
   }
 }
-/**/without 
-.icons { 
+
+.icons {
   position: absolute; /* Position the icons absolutely */
   right: 10px; /* Adjust the right value as needed */
+
 }
 
 .icons > * {
   padding: 5px 10px; /* Adjust padding for spacing between icons */
+  cursor:pointer
 }
 
 .icons > * > * {
