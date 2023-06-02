@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef,useEffect } from 'react';
 import './App.css';
 import InputField from './components/InputField';
 import { AiFillDelete, AiFillEdit } from 'react-icons/ai';
@@ -12,9 +12,13 @@ type Task = {
 };
 
 const App: React.FC = () => {
+  const [editedTaskInfo, setEditedTaskInfo] = useState<string>("")
   const [task, setTask] = useState<string>('');
   const [taskList, setTaskList] = useState<Task[]>([]);
-  
+  const [edit, setEdit] = useState(false)
+  const inputRef = useRef<HTMLInputElement>(null)
+  //to bring focus on the input field when edit clicked 
+  //if we dont give <type> gives error that its possibly null
   const handleAddTask = (task: string) => {
     if (task !== '') {
       setTask(task);
@@ -32,6 +36,7 @@ const App: React.FC = () => {
     setisEdit(true)
     task.isEdit= !task.isEdit
     */
+    setEdit(!edit)
     setTaskList(prev=>{
 
      let newList = prev.map(item=>{
@@ -46,9 +51,24 @@ const App: React.FC = () => {
   
   }
 
-  const handleDoneInputTask = () => {
-  {/**on done icon click the input box replaced by sspan text */}
+  const handleDoneEditTask = (editedTask: Task)=>{
+    setTaskList((prev) => {
+      const newList = prev.map((item) => {
+        if (item.id === editedTask.id) {
+          editedTask.isEdit=false
+           editedTask.task=editedTaskInfo;
+           return editedTask
+        }
+        return item;
+      });
+      return newList;
+    });
   }
+
+  useEffect(()=>{
+    inputRef.current?.focus();//if ? nto given will give error possibly null
+
+  },[edit]);
   return (
     <div className="App">
       <span className="heading">Task List</span>
@@ -62,7 +82,13 @@ const App: React.FC = () => {
               <div className="task__list__content">
               {
                 task.isEdit?
-                <input name='task-edit' type='text' className='task-input-edit'/>:
+                <input 
+                ref={inputRef}
+                name='task-edit' type='text' className='task-input-edit'
+                onChange={(e) =>
+                  setEditedTaskInfo(e.target.value)
+                }
+                />:
               task.isDone?
                 //  {/**replace edit with done icon */}
                <s className="task__list__taskinfo">{task.task}</s>:
@@ -79,11 +105,20 @@ const App: React.FC = () => {
                 }>
                     <AiFillDelete />
                   </span>
+                  
+                 {
+                 task.isEdit?
+                 <span className="icons__edit" onClick={()=>{handleDoneEditTask(task)}}>
+                  <IoMdCloudDone/>
+                  </span>:
                   <span className="icons__edit" onClick={()=>{handleEditTask(task)}}>
-                 {task.isEdit?
-                  <IoMdCloudDone/>:
-                    <AiFillEdit />}
+                    <AiFillEdit />
                   </span>
+                  }
+
+
+
+
                   <span className="icons__done">
                     <MdDone onClick={()=>{
                      setTaskList((prev)=>{
