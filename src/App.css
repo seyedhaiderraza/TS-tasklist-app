@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-
+*{
+  
+  font-family: 'Neucha';
+}
 .App {
   display: flex;
   align-items: center;
@@ -8,7 +11,6 @@
 }
 
 .heading {
-  font-family: 'Neucha';
   font-size: 3rem;
   color: white;
 }
@@ -68,4 +70,12 @@
 .icons > * > * {
   width: 30px;
   height: 30px;
+}
+
+.task-input-edit{
+  outline: none;
+  width: 40%;
+  border:none;
+  height: 30px;
+  font-size: large;
 }
