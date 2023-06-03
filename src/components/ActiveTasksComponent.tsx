@@ -68,7 +68,7 @@ const ActiveTasksComponent: React.FC<Props> = ({
                         <span
                           className="icons__edit"
                           onClick={() => {
-                            handleDoneEditTask(task);
+                            handleDoneEditTask({...task, task:editedTaskInfo});
                           }}
                         >
                           <IoMdCloudDone />
