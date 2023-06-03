@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import InputField from './components/InputField';
 import ActiveTasksComponent from './components/ActiveTasksComponent';
-import CompletedTasksComponent from './components/CompletedTasksComponent';
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 
 export type Task = {
   id: number;
@@ -14,7 +14,7 @@ export type Task = {
 const App: React.FC = () => {
   const [task, setTask] = useState<string>('');
   const [taskList, setTaskList] = useState<Task[]>([]);
-  const [completedTaskList, setCompletedTaskList] = useState<Task[]>([])
+  const [completedTaskList, setCompletedTaskList] = useState<Task[]>([]);
 
   const handleAddTask = (task: string) => {
     if (task !== '') {
@@ -61,8 +61,11 @@ const App: React.FC = () => {
       <span className="heading">Task List</span>
       <InputField task={task} handleAddTask={handleAddTask} />
       <div className="list-container">
-            <div className="ActiveTasksList">
-                  <span>Active Task List</span>
+        <DragDropContext onDragEnd={() => {}}>
+          <Droppable droppableId="active-task-list">
+            {(provided) => (
+              <div className="ActiveTasksList" ref={provided.innerRef} {...provided.droppableProps}>
+                <span>Active Task List</span>
                 <ActiveTasksComponent
                   task={task}
                   taskList={taskList}
@@ -70,18 +73,27 @@ const App: React.FC = () => {
                   handleDoneEditTask={handleDoneEditTask}
                   setTaskList={setTaskList}
                 />
-            </div>
-            <div className="CompletedTasksList">
-              <span>Completed Task List</span>
-             <ActiveTasksComponent
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+          <Droppable droppableId="completed-task-list">
+            {(provided) => (
+              <div className="CompletedTasksList" ref={provided.innerRef} {...provided.droppableProps}>
+                <span>Completed Task List</span>
+                <ActiveTasksComponent
                   task={task}
-                  taskList={taskList}
+                  taskList={completedTaskList}
                   handleEditTask={handleEditTask}
                   handleDoneEditTask={handleDoneEditTask}
-                  setTaskList={setTaskList}
+                  setTaskList={setCompletedTaskList}
                 />
-            </div>
-    </div>
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </DragDropContext>
+      </div>
     </div>
   );
 };
