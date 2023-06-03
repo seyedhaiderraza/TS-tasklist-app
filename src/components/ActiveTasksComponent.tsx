@@ -27,7 +27,6 @@ const ActiveTasksComponent: React.FC<Props> = ({
     <>
       {task !== '' && taskList && (
         <>
-          {console.log(taskList)}
           {taskList.map((task, index) => (
             <Draggable draggableId={task.id.toString()} index={index} key={task.id}>
               {(provided) => (

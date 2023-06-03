@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import InputField from './components/InputField';
 import ActiveTasksComponent from './components/ActiveTasksComponent';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd';
+import { log } from 'console';
 
 export type Task = {
   id: number;
@@ -56,12 +57,50 @@ const App: React.FC = () => {
     inputRef.current?.focus();
   }, []);
 
+  const onDragEnd = (result:DropResult) =>{
+    console.log(result)//for finding out parameters to use for logic
+    const {source, destination} = result
+
+
+    if(!destination) return;
+    if(destination.droppableId===source.droppableId && destination.index===source.index)
+      return
+
+
+      /*
+      check if source droppable id is activetasklist 
+      then
+      -pull the task out from active task list
+      - splice the activetasklist from source.index for 1
+      else
+      - pull the task out from complete task list
+      - splice the completetasklist from source.index for 1
+
+       */
+      let draggedTask,activeList=taskList, completeList=completedTaskList;
+
+      if(source.droppableId==='active-task-list'){
+        draggedTask = activeList[source.index]
+        activeList.splice(source.index,1)
+      }else{
+        draggedTask = completeList[source.index]
+        completeList.splice(source.index,1)
+      }
+      if(destination.droppableId==='active-task-list'){
+        activeList.splice(destination.index,0,draggedTask)
+      }else{
+        completeList.splice(destination.index,0,draggedTask)
+      }
+
+    setTaskList(activeList)
+    setCompletedTaskList(completeList)
+  }
   return (
     <div className="App">
       <span className="heading">Task List</span>
       <InputField task={task} handleAddTask={handleAddTask} />
       <div className="list-container">
-        <DragDropContext onDragEnd={() => {}}>
+        <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="active-task-list">
             {(provided) => (
               <div className="ActiveTasksList" ref={provided.innerRef} {...provided.droppableProps}>
