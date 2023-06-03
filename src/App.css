@@ -98,13 +98,13 @@
   align-items: flex-start;/* otherwise both lists won't stick just below input+add*/
   justify-content: center;
   width: 60%;
-  margin-left: -10rem;
+  margin-left: -7rem;
 }
 
 
 .CompletedTasksList{
   background-color: #7dc4ff;
-  width: 40%;
+  width: 50%;
   margin-right: 2rem; 
   padding: 0rem;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -116,7 +116,7 @@
 }
 .ActiveTasksList{
   background-color: #9f95f9;
-  width: 40%;
+  width: 50%;
   margin-right: 2rem; 
   padding: 0rem;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
