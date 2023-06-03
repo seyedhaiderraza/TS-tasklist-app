@@ -84,8 +84,10 @@ const App: React.FC = () => {
       }
       if(destination.droppableId==='active-task-list'){
         activeList.splice(destination.index,0,draggedTask)
+        //use splice to add the draggedTask at  destination.index by removing 0 elements at destinationindex
       }else{
         completeList.splice(destination.index,0,draggedTask)
+       // use splice to add the draggedTask at  destination.index by removing 0 elements at destinationindex
       }
 
     setTaskList(activeList)
@@ -103,7 +105,7 @@ const App: React.FC = () => {
                className={`ActiveTasksList ${snapshot.isDraggingOver?'dragActive':''}`}
                 ref={provided.innerRef
                 } {...provided.droppableProps}>
-                  
+
                 <span>Active Task List</span>
                 <ActiveTasksComponent
                   task={task}
