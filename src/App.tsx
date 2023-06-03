@@ -102,8 +102,8 @@ const App: React.FC = () => {
       <div className="list-container">
         <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="active-task-list">
-            {(provided) => (
-              <div className="ActiveTasksList" ref={provided.innerRef} {...provided.droppableProps}>
+            {(provided, snapshot) => (
+              <div className={`ActiveTasksList ${snapshot.isDraggingOver?'dragActive':''}`} ref={provided.innerRef} {...provided.droppableProps}>
                 <span>Active Task List</span>
                 <ActiveTasksComponent
                   task={task}
@@ -117,8 +117,8 @@ const App: React.FC = () => {
             )}
           </Droppable>
           <Droppable droppableId="completed-task-list">
-            {(provided) => (
-              <div className="CompletedTasksList" ref={provided.innerRef} {...provided.droppableProps}>
+            {(provided, snapshot) => (
+              <div className={`CompletedTasksList ${snapshot.isDraggingOver?'dragComplete':''}`} ref={provided.innerRef} {...provided.droppableProps}>
                 <span>Completed Task List</span>
                 <ActiveTasksComponent
                   task={task}
