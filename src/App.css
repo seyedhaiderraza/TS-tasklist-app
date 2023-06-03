@@ -37,6 +37,7 @@
   margin-bottom: 10px;
   padding: 10px;
   position: relative; /* Add position relative to the task__list */
+  height: 2rem;
 }
 .task__list__id {
   font-size: 20px;
