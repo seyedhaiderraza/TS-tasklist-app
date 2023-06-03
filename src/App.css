@@ -103,21 +103,25 @@
 
 
 .CompletedTasksList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #7dc4ff;
   width: 50%;
   margin-right: 2rem; 
-  padding: 0rem;
+  padding: 0rem 5rem;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   transition: all 0.5s ease-in-out;
  
 }
 .CompletedTasksList > span{
   font-size: 2rem;
+  text-align: center;
 }
 .ActiveTasksList{
   background-color: #9f95f9;
   width: 50%;
   margin-right: 2rem; 
-  padding: 0rem;
+  padding: 0rem 5rem;
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }

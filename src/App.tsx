@@ -14,6 +14,7 @@ export type Task = {
 const App: React.FC = () => {
   const [task, setTask] = useState<string>('');
   const [taskList, setTaskList] = useState<Task[]>([]);
+  const [completedTaskList, setCompletedTaskList] = useState<Task[]>([])
 
   const handleAddTask = (task: string) => {
     if (task !== '') {
@@ -72,7 +73,13 @@ const App: React.FC = () => {
             </div>
             <div className="CompletedTasksList">
               <span>Completed Task List</span>
-              <CompletedTasksComponent/>
+             <ActiveTasksComponent
+                  task={task}
+                  taskList={taskList}
+                  handleEditTask={handleEditTask}
+                  handleDoneEditTask={handleDoneEditTask}
+                  setTaskList={setTaskList}
+                />
             </div>
     </div>
     </div>
