@@ -30,10 +30,10 @@
   background-color: #d1d1ff;
   justify-content: space-between;
   align-items: center;
-  width: 75%;
+  width: 100%;
   border: 0.5px solid;
   text-align: left;
-  margin-left: -15%;
+ 
   margin-bottom: 10px;
   padding: 10px;
   position: relative; /* Add position relative to the task__list */
