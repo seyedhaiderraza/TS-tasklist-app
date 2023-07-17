@@ -17,16 +17,37 @@ https://todolist-typescript-project.vercel.app/
 
 4. # Technology Stack used
 -----------------
-HTML5/CSS3
-JS
-React
-TypeScript
-vercel deployment
+1. HTML5/CSS3
+2. JS
+3. React
+4. TypeScript
+5. vercel deployment
 
 5. # Functional Requirements/Acceptance Criteria
 -----------------
+GIVEN: User opens Todo list
+WHEN: User inputs task data
+AND: press enter/click add button
+THEN: task is displayed under active list
 
+GIVEN: User has a active task
+WHEN: User drags the task to complete list
+AND: user drops the task to complete list
+THEN: task is displayed under complete list
 
+GIVEN: task has delete icon 
+WHEN: User clicks on task related delete icon
+THEN: task is rmeoved form active/complete list
+
+GIVEN: task has edit icon 
+AND: task is in active list
+WHEN: User clicks on task related edit icon
+THEN: task content can be edited
+
+GIVEN: task has edit icon 
+AND: task is in completed list
+WHEN: User clicks on task related edit icon
+THEN: task content cannot  be edited
 
 6. # Test Data(if any)
 -----------------
