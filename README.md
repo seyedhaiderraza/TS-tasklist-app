@@ -1,10 +1,16 @@
-# JS-dice-game
+Todolist Project
 1. # Project summary
 ----------------
 
-This is a Javascript only Project using HTML5/CSS3 to show a Finance app consisting of - login, transactions-deposit/withdrawal, transfer to, close account functionalities.
+This is a TodoList App built on Typescript and React.
+it includes features like:
+1. enter input task data
+2. input task data gets added to active task list.
+3. task has options to delete, mark complete, edit
+4. task drag and drop to completed list and vice versa
 
-2. # Project URL
+
+5. # Project URL
 ----------------
 
 https://js-finance-app.vercel.app/
