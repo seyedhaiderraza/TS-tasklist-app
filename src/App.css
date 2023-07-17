@@ -49,6 +49,7 @@
   flex-grow: 1; /* Allow content to grow and fill the remaining space */
 }
 .task__list__taskinfo {
+  margin-top: 4px;
   font-size: 20px;
   overflow-wrap: break-word;
   flex-grow: 1;
@@ -69,19 +70,20 @@
 }
 
 .icons {
-  position: absolute; /* Position the icons absolutely */
-  right: 10px; /* Adjust the right value as needed */
+  display:flex;
+   /*position: absolute; Position the icons absolutely */
+   /*right: 10px; Adjust the right value as needed */
 
 }
 
 .icons > * {
-  padding: 5px 10px; /* Adjust padding for spacing between icons */
+  padding: 10px 10px; /* Adjust padding for spacing between icons */
   cursor:pointer
 }
 
 .icons > * > * {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 .task-input-edit{
