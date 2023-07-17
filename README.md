@@ -1,46 +1,134 @@
-# Getting Started with Create React App
+Todolist Project
+1. # Project summary
+----------------
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a TodoList App built on Typescript and React.
+it includes features like:
+1. enter input task data
+2. input task data gets added to active task list.
+3. task has options to delete, mark complete, edit
+4. task drag and drop to completed list and vice versa
 
-## Available Scripts
 
-In the project directory, you can run:
+5. # Project URL
+----------------
 
-### `npm start`
+https://js-finance-app.vercel.app/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. # Technology Stack used
+-----------------
+HTML5/CSS3
+JavaScript: 📜 
+  - DOM Manipulation,
+  - EventListeners and handling
+  - Array methods - push, pop, shift, unshift, slice, splice
+  - functions
+vercel deployment
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+5. # Functional Requirements/Acceptance Criteria
+-----------------
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+HOMEPAGE NO LOGIN
 
-### `npm run build`
+GIVEN: user visits finance index page
+WHEN: user views the page
+THEN: user is not logged in
+AND: login to get started is displayed at header
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+HOMEPAGE LOGIN
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+GIVEN: user visits finance index page
+WHEN: user enters username 'jsmith' and pin 1234
+THEN: user is able to log in
+AND: able to see welcome back user on top header
 
-### `npm run eject`
+TRANSACTIONS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+GIVEN:user is logged in
+WHEN: transactions is displayed on left grid
+THEN: transactions display withdrawal and deposits
+AND: transactions are in ascending order
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+TRANSFER
 
-## Learn More
+GIVEN: user is logged in
+WHEN: user enters any full name from the test data below ( 'Jane Doe' etc)
+AND: user enters amount< available amount
+THEN: amount is shown as withdrawal in transaction
+AND amount displayed as deposit is shown for login user jdoe pin 5678
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+DEPOSIT
+
+GIVEN: user is logged in
+WHEN: user enters amount > 101 $
+THEN: amount is shown as deposits in transaction
+AND amount displayed as deposit is shown for login user jdoe pin 5678
+
+
+
+CLOSE Account
+
+GIVEN: user is logged in
+WHEN: user enters username and password in close account
+THEN: the account temporarily gets disabled
+AND: user unable to login back with the same credentials
+
+
+
+ACCOUNT SUMMARY
+
+GIVEN: user is logged in
+WHEN: user scrolls down
+THEN: the user is able to see acount summary - total deposits, total withdrawal, total interests
+
+
+
+6. # Test Data(if any)
+-----------------
+ 1. Transfer To : 'John Smith',
+          Login : 'jsmith',
+            pin : 1234,
+
+    
+2.  Transfer To :  'Jane Doe',
+          Login : 'jdoe'
+          pin: 5678,
+    
+3. Transfer To : 'Bob Johnson',
+          pin: 9876,
+           Login : 'bjohnson'
+ 4. Transfer To : 'Alice Lee',
+          pin: 2468,
+          Login: 'alee'
+    
+ 5.  Transfer To : 'Tom Brown',
+          pin: 1357,
+          Login: 'tbrown'
+ 6. Transfer To :  'Sara Kim',
+          pin: 3690,
+          Login: 'skim'
+
+7. # Screens
+------------------
+### Homepage without Login:
+![image](https://github.com/seyedhaiderraza/JS-dice-game/assets/129282622/1e1f1d33-0a6f-46ef-99a7-26a24985c56f)
+
+### HomePage with Login:
+data: jsmith, 1234
+![image](https://github.com/seyedhaiderraza/JS-dice-game/assets/129282622/0de0ae03-972f-4d79-a6fd-3b821d9a0da7)
+
+
+
+
+
+
+
+
+
+
+
